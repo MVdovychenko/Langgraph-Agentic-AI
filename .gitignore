@@ -1,0 +1,5 @@
+# Ignore the whole secrets folder
+secrets/
+
+# Ignore the .env file
+.env

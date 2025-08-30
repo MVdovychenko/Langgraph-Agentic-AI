@@ -1,0 +1,25 @@
+services:
+  langgraph-ui:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: langgraph-ui
+
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      # Optional: make paths explicit for your code
+      - GOOGLE_CAL_CLIENT_SECRET=/app/secrets/client_secret.json
+      - GOOGLE_CAL_TOKEN=/app/secrets/token.json
+      - GOOGLE_CAL_SCOPES=https://www.googleapis.com/auth/calendar.events
+      - TZ=Europe/Berlin
+    ports:
+      - "8505:8501"
+
+    volumes:
+      - .:/app/
+      - ./secrets:/app/secrets:rw     # <— mount creds & token
+
+    restart: always
+
+volumes:
+  chroma-volume:
