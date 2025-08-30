@@ -18,40 +18,14 @@ The results are always returned in a structured JSON format and then converted i
    OPENAI_API_KEY=your-key
    TAVILY_API_KEY=your-key
    ```
-3. In Google Cloud Console create OAuth credentials ("Desktop app") and download them as `credentials.json`.  
+3. In Google Cloud Console create OAuth credentials ("Web app") and download them as `credentials.json`.  
    Place the file into the `secrets/` folder.
 4. Run `oauth_bootstrap.py` once. This opens a browser window and asks for Google login.  
    After the first login, a `token.json` is created in the same folder.
-5. Start the app with Docker or directly:
+5. Start the app with Docker:
    ```
-   streamlit run app.py
+   docker-compose up
    ```
-
----
-
-## Prerequisites
-
-There are two ways to run the project:
-
-### 1. With Docker (recommended)
-- Install [Docker Desktop](https://www.docker.com/products/docker-desktop)  
-- Make sure Docker is running  
-- Then simply run:
-  ```
-  docker-compose up --build
-  ```
-- The app will be available in browser at [http://localhost:8501](http://localhost:8501)
-
-### 2. Locally with Python
-- Install Python 3.11 or newer  
-- Install dependencies:
-  ```
-  pip install -r requirements.txt
-  ```
-- Start the app:
-  ```
-  streamlit run app.py
-  ```
 
 ---
 
@@ -103,4 +77,6 @@ It provides a simple chat interface:
 ## Notes
 
 - `.env`, `credentials.json`, and `token.json` are **not included** in the repo for security reasons.  
-- The reviewer needs to create these files locally to test the full functionality.
+- The reviewer needs to create these files locally to test the full functionality. check Google documentation for the token.json and credentials.json.
+- oauth_bootstrap.py should be executed first time to generate the google token. then the app should work!
+- you can simply run the script outside the container using simply "oauth_bootstrap.py".
