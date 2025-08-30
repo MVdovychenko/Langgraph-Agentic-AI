@@ -79,4 +79,4 @@ It provides a simple chat interface:
 - `.env`, `credentials.json`, and `token.json` are **not included** in the repo for security reasons.  
 - The reviewer needs to create these files locally to test the full functionality. check Google documentation for the token.json and credentials.json.
 - oauth_bootstrap.py should be executed first time to generate the google token. then the app should work!
-- you can simply run the script outside the container using simply "oauth_bootstrap.py".
+- you can simply run the script outside the container using simply "python oauth_bootstrap.py".
